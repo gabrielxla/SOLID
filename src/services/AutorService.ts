@@ -1,5 +1,6 @@
 import {Request, Response} from "express";
 import AutorRepository from "../repositories/AutorRepository";
+import Autor from "../classes/Autor";
 
 export default class AutorService{
 
@@ -13,6 +14,22 @@ export default class AutorService{
         catch (erro) {
             return res.status(500).json(erro)
         }
+    }
+    async cadastroAutor(req:Request, res:Response){
+        const aut:Autor = new Autor();
+        aut.nome = req.body.nome;
+        aut.email = req.body.email;
+        aut.cpf = req.body.cpf;
+        aut.telefone = req.body.telefone;
+        aut.genero_literario = req.body.genero_literario;
+        aut.endereco = req.body.endereco;
+        try{
+            const rs = await this.autRepository.Cadastrar(aut);
+            return res.status(201).json(rs);
+        }
+        catch(erro){
+            return res.status(500).json(erro)
+        }       
     }
 
 }

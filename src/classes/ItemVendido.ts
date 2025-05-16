@@ -1,9 +1,14 @@
-import Venda from "./Produto";
-import Produto from "./Venda";
+import Produto from "./Produto";
+import Venda from "./Venda";
 
-export default class ItemVendido{
+export default class ItemVendido {
     id!: number;
-    venda!: Venda;
-    produto!: Produto;
+    venda: Venda;  // Remover a asserção ! e garantir a inicialização
+    produto: Produto;  // Remover a asserção ! e garantir a inicialização
     quantidade!: number;
+
+    constructor() {
+        this.venda = new Venda();  // Inicializando aqui
+        this.produto = new Produto();  // Inicializando aqui
+    }
 }

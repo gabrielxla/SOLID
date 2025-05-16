@@ -1,5 +1,6 @@
 import {Request, Response} from "express";
 import FuncionarioRepository from "../repositories/FuncionarioRepository";
+import Funcionario from "../classes/Funcionario";
 
 export default class FuncionarioService{
 
@@ -15,4 +16,21 @@ export default class FuncionarioService{
         }
     }
 
+    async cadastroFun(req:Request, res:Response){
+        const fun:Funcionario = new Funcionario();
+        fun.nome = req.body.nome;
+        fun.email = req.body.email;
+        fun.cpf = req.body.cpf;
+        fun.telefone = req.body.telefone;
+        fun.cargo = req.body.cargo;
+        fun.salario = req.body.salario;
+        fun.endereco = req.body.endereco;
+        try{
+            const rs = await this.funRepository.Cadastrar(fun);
+            return res.status(201).json(rs);
+        }
+        catch(erro){
+            return res.status(500).json(erro)
+        }       
+    }
 }
