@@ -1,1 +1,1 @@
-# 
+# Projeto que guarda dados de uma livraria no banco de dados MYSQL com base no SOLID
