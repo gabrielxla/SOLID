@@ -3,4 +3,7 @@ export default class Produto{
     nome!: string;
     descricao!: string;
     preco!: number;
+    foto1!: string;
+    foto2!: string;
+    foto3!: string;
 }

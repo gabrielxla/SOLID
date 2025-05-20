@@ -21,6 +21,9 @@ export default class FuncionarioService{
         prod.nome = req.body.nome;
         prod.descricao = req.body.descricao;
         prod.preco = req.body.preco;
+        prod.foto1 = req.body.foto1;
+        prod.foto2 = req.body.foto2;
+        prod.foto3 = req.body.foto3;
        
         try{
             const rs = await this.prodRepository.Cadastrar(prod);
