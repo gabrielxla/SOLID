@@ -34,6 +34,9 @@ app.get("/api/v1/funcionario/listar",(req,res)=>{
 app.get("/api/v1/produto/listar",(req,res)=>{
     prod.listarFuncionarios(req,res);
 })
+app.get("/api/v1/produto/listarmaisvendidos",(req,res)=>{
+    prod.listarProdutoMaisvendidos(req,res);
+})
 app.get("/api/v1/venda/listar",(req,res)=>{
     ven.listarVenda(req,res);
 })
@@ -43,6 +46,7 @@ app.get("/api/v1/itemvenda/listar",(req,res)=>{
 app.get("/api/v1/pagamento/listar",(req,res)=>{
     pag.listarpagamento(req,res);
 })
+
 
 
 app.post("/api/v1/pagamento/cadastro",(req,res)=>{

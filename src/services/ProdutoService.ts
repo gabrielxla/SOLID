@@ -33,4 +33,13 @@ export default class FuncionarioService{
             return res.status(500).json(erro)
         }       
     }
+    async listarProdutoMaisvendidos(req:Request, res:Response){
+        try {
+            const rs = await this.prodRepository.ListarMaisvendidos();
+            return res.status(200).json(rs);
+        } 
+        catch (erro) {
+            return res.status(500).json(erro)
+        }
+    }
 }

@@ -15,6 +15,21 @@ export default class ProdutoRepository implements Commands<Produto>{
             })
         })
     }
+    ListarMaisvendidos(): Promise<Produto[]> {
+        return new Promise((resolve,reject)=>{
+            conexao.query(`select produto.nome, produto.foto1, itensvenda.quantidade
+from produto inner join itensvenda 
+on produto.id = itensvenda.id_produto 
+order by itensvenda.quantidade desc
+limit 0,10`,(erro, result)=>{
+                if (erro) {
+                    return reject(erro)
+                } else {
+                    return resolve(result as Produto[])
+                }
+            })
+        })
+    }
     Apagar(id: number): Promise<string> {
         throw new Error("Method not implemented.");
     }
